@@ -16,9 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from prismaapp.views import *
+from prismaapp.views import home, movie_create, movie_update, movie_delete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('', home, name='home'),
+    path('movie/new/', movie_create, name='movie_create'),
+    path('movie/<int:pk>/update/', movie_update, name='movie_update'),
+    path('movie/<int:pk>/delete/', movie_delete, name='movie_delete'),
 ]
