@@ -7,21 +7,93 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
+
 <body>
     <div class="header">
-        <svg style="color: white;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-film size-5 text-primary-foreground" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M7 3v18"></path><path d="M3 7.5h4"></path><path d="M3 12h18"></path><path d="M3 16.5h4"></path><path d="M17 3v18"></path><path d="M17 7.5h4"></path><path d="M17 16.5h4"></path></svg>
+        <svg style="color: white;" xmlns="http://www.w3.org/2000/svg"
+            width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+            <path d="M7 3v18"></path>
+            <path d="M3 7.5h4"></path>
+            <path d="M3 12h18"></path>
+            <path d="M3 16.5h4"></path>
+            <path d="M17 3v18"></path>
+            <path d="M17 7.5h4"></path>
+            <path d="M17 16.5h4"></path>
+        </svg>
         <span>Lumière</span>
     </div>
 
-    <main class="form-container">
-        <h2>{{ title }}</h2>
+    <main class="page-container">
 
-        <form method="post" class="movie-form">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Salvar</button>
-            <a href="{% url 'home' %}" class="btn btn-secondary">Cancelar</a>
-        </form>
+        <!-- Apresentação -->
+        <section class="introduction">
+            <h1>Pietra Lago Maia</h1>
+
+            <h2>O fascinante mundo do cinema</h2>
+
+            <p>
+                O cinema é uma forma de arte capaz de contar histórias,
+                despertar emoções e transportar o espectador para
+                diferentes realidades.
+            </p>
+
+            <p>
+                Gosto especialmente de filmes com
+                <b>histórias envolventes</b>,
+                personagens <i>marcantes</i> e
+                <u>cenários inesquecíveis</u>.
+            </p>
+
+       <img
+    src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=900"
+    alt="Sala de cinema com poltronas e tela"
+    class="cinema-image">
+        </section>
+
+        <!-- Lista ordenada -->
+        <section class="movie-section">
+            <h2>Meus 3 filmes favoritos</h2>
+
+<ol>
+    <li>Divergente</li>
+    <li>Harry Potter e o Cálice de Fogo</li>
+    <li>Como Perder um Homem em 10 Dias</li>
+</ol>
+        </section>
+
+        <!-- Lista não ordenada -->
+        <section class="movie-section">
+            <h2>Gêneros cinematográficos</h2>
+
+            <ul>
+                <li>Drama</li>
+                <li>Comédia</li>
+                <li>Ficção científica</li>
+                <li>Suspense</li>
+                <li>Romance</li>
+            </ul>
+        </section>
+
+        <!-- Formulário original do Django -->
+        <section class="form-container">
+            <h2>{{ title }}</h2>
+
+            <form method="post" class="movie-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-primary">
+                    Salvar
+                </button>
+
+                <a href="{% url 'home' %}" class="btn btn-secondary">
+                    Cancelar
+                </a>
+            </form>
+        </section>
+
     </main>
 </body>
 </html>
